@@ -23,7 +23,7 @@ class Model:
         self.model.compile(optimizer='adam', loss=utils.f1_loss, metrics=['accuracy', utils.f1_metric])
 
     def fit(self, x, y):
-        self.model.fit(x, y)
+        self.model.fit(x, y, epochs=1000)
 
     def evaluate(self, x, y):
         return self.model.evaluate(x, y)
