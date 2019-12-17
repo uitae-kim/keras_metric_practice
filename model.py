@@ -19,11 +19,11 @@ class Model:
             else:
                 self.model.add(Dense(unit))
 
-        # 안에서 컴파일도 해주는 케이스로 해봅시다
-        self.model.compile(optimizer='adam', loss=utils.f1_loss, metrics=['accuracy', utils.f1_metric])
+        # 안에선 컴파일하는 케이스로 해봅시다
+        self.model.compile(optimizer='adam', loss=utils.f1_geometric_loss, metrics=['accuracy', utils.p_metric, utils.r_metric, utils.f1_geometric])
 
     def fit(self, x, y):
-        self.model.fit(x, y, epochs=1000)
+        self.model.fit(x, y)
 
     def evaluate(self, x, y):
         return self.model.evaluate(x, y)
